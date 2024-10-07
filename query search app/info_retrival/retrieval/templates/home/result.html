@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Results for: "{{ query }}"</h1>
+    <ul>
+        {% for doc, score in ranked_docs %}
+        <li>{{ doc }} - Score: {{ score }}</li>
+        {% empty %}
+        <li>No results found.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'retrieve_documents' %}">Back to Search</a>
+</body>
+</html>
